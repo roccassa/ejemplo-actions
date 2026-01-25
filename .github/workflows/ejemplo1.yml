@@ -1,3 +1,4 @@
+name: hola mundo
 on:
   workflow_dispatch:
   push:
