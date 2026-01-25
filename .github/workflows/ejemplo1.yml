@@ -1,10 +1,27 @@
-name: hola mundo
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths: 
+      - 'codigo/**'
+  pull_request:
+    branches:
+      -main
 
-on: [push]
 
 jobs:
   saludar:
     runs-on: ubuntu-latest
     steps:
       - name: Muestra mensaje hola mundo
-        run: echo "Hola, roccassa"
+        run: echo "Hola mundo, Antonio"
+
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+
+      - name: Listar los archivos del repositorio
+        run: |
+          echo "El repositorio $(( github.repository )) contiene los siguientes archivos:"
+          tree
+      
