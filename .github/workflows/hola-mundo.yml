@@ -1,0 +1,27 @@
+name: hola mundo #nombre del workflow
+
+on: 
+  workflow_dispatch:
+    #schedule:
+     # - cron: "*/5 * * * *"  #se ejecuta cada 5 min
+  push:
+      branches:
+        - main # se ejecuta el job al hacer push a la rama main
+  pull_request:
+    branches:
+      - main # se ejecuta el job al hacer pull request a la rama main
+
+jobs:
+  saludar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Muestra el mensaje hola mundo
+        run: echo "hola mundo, roccassa"
+
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+
+      - name: Listar los archivos
+        run: |
+          echo: "El repositorio ${{ github.repository }} contiene los siguientes archivos:"
+          tree
