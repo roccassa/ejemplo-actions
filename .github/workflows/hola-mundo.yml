@@ -23,5 +23,5 @@ jobs:
 
       - name: Listar los archivos
         run: |
-          echo: "El repositorio ${{ github.repository }} contiene los siguientes archivos:"
+          echo "El repositorio ${{ github.repository }} contiene los siguientes archivos:"
           tree
